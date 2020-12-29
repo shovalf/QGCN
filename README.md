@@ -30,14 +30,15 @@ g_id,src,dst,label <br>
 6678,_2,_4,i <br>
 6678,_3,_5,i
 
-External data file:
-g_id,node,charge,chem,symbol,x,y
-6678,_1,0,1,C,4.5981,-0.25
-6678,_2,0,1,C,5.4641,0.25
-6678,_3,0,1,C,3.7321,0.25
-6678,_4,0,1,C,6.3301,-0.25
+<p>
+External data file: <br>
+g_id,node,charge,chem,symbol,x,y <br>
+6678,_1,0,1,C,4.5981,-0.25 <br>
+6678,_2,0,1,C,5.4641,0.25 <br>
+6678,_3,0,1,C,3.7321,0.25 <br>
+6678,_4,0,1,C,6.3301,-0.25 <br>
 
 -> Parameters file for each part of the algorithm. Example files can be found in "params" directory (different for binary/multiclass). Notice that if an external file is not 
 provided, you should put the associated parameters as None.
 
-Once you have these files, to the directory 
+Once you have these files, to QGCN_model->qgcn_activator.py and run it according to your params file.
