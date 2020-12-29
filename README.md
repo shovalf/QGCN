@@ -21,13 +21,13 @@ To use this package you will need to provide the following files as input:
     - graph id
     - node id
     - column for every external feeture (if the value is not numeric then it can be handeled with embeddings)
-    
-Example for such files:
-graph csv file:
-g_id,src,dst,label
-6678,_1,_2,i
-6678,_1,_3,i
-6678,_2,_4,i
+<p>   
+Example for such files: <br>
+graph csv file: <br>
+g_id,src,dst,label <br>
+6678,_1,_2,i <br>
+6678,_1,_3,i <br>
+6678,_2,_4,i <br>
 6678,_3,_5,i
 
 External data file:
