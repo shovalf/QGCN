@@ -7,7 +7,8 @@ required packages:
 - numpy
 
 ### How to use 
-To use this package you will need to provide the following files as input
+To use this package you will need to provide the following files as input:
+
 -> Graphs csv file - files that contains the graphs for input and their labels
   The format of the file is flexible, but it must contain headers for any columns, and the there must be a column provided for:
   - graph id
