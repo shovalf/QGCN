@@ -42,3 +42,5 @@ g_id,node,charge,chem,symbol,x,y <br>
 provided, you should put the associated parameters as None.
 
 Once you have these files, to QGCN_model->qgcn_activator.py and run it according to your params file.
+
+The datasets can be download here: https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets . Notice the format we have used.
