@@ -371,11 +371,7 @@ class QGCNActivator:
 
         if show_plot:
             self._plot_acc_dev()
-
-        a = list_Ax[0][0]
-        matrix = concat_matrix(list_Ax)
-        kkk = bar_plot(matrix)
-        return list_Ax, kkk
+            
 
     # validation function only the model and the data are important for input, the others are just for print
     def _validate(self, data_loader, job=""):
@@ -409,58 +405,25 @@ class QGCNActivator:
         if self._is_binary:
             self._update_auc(pred, true_labels, job=job)
         return loss
-
-
-def concat_matrix(list_ax):
-    new_list = [list_ax[i][0] for i in range(len(list_ax))]
-    arrays = tuple(new_list)
-    matrix = np.concatenate(arrays)
-    # for i in range(matrix.shape[1]):
-    #     plt.figure(i)
-    #     _ = plt.hist(matrix[:, i], bins='auto', density=True)
-    #     plt.savefig("distribution {}".format(i))
-    #     print(1)
-    print(matrix.shape)
-    return matrix
-
-
-def bar_plot(matrix):
-    my_list = []
-    for i in range(matrix.shape[1]):
-        b = matrix[:, i]
-        a = np.count_nonzero(b==0)
-        my_list.append(a)
-    return my_list
-
+    
 
 if __name__ == '__main__':
     from dataset.dataset_external_data import ExternalData
     from dataset.dataset_graphs_model import GraphsDataset
-
-    params_files = ["../params/proteins_small_params.json", "../params/NCI1_params.json",
-                    "../params/NCI109_params.json"]
-    params_files1 = ["../params/mutagen_params.json", "../params/grec_params.json",
-                     "../params/default_binary_params.json"]
-    all = []
-    for params_file in params_files:
-        # ext_train = ExternalData(params_file)
-        ds = GraphsDataset(params_file, external_data=None)
-        model = QGCN(params_file, ds.len_features, [10])
-        # model = QGCN(params_file, ds.len_features, ext_train.len_embed())
-        activator = QGCNActivator(model, params_file, ds)
-        list_ax, my_list = activator.train()
-        all.append(my_list)
-    with open('output8.txt', 'w') as f:
-        for _list in all:
-            for _string in _list:
-                f.write(str(_string) + ' ')
-            f.write("\n")
-
-    # params_file = "../params/mutagen_params.json"
-    # ext_train = ExternalData(params_file)
-    # ds = GraphsDataset(params_file, external_data=ext_train)
-    # model = QGCN(params_file, ds.len_features, ext_train.len_embed())
-    # #model = QGCN(params_file, ds.len_features, [10])
-    #
-    # activator = QGCNActivator(model, params_file, ds)
-    # list_ax = activator.train()
+    
+    # To run, choose one of these two codes - if you have external data choose the first one, else the second one
+    
+    # If your data has an extenral information
+    params_file = "../params/mutagen_params.json"  # put here your params file
+    ext_train = ExternalData(params_file)
+    ds = GraphsDataset(params_file, external_data=ext_train)
+    model = QGCN(params_file, ds.len_features, ext_train.len_embed())
+    activator = QGCNActivator(model, params_file, ds)
+    activator.train()
+    
+    # If your data does not have external information
+    params_file = "../params/proteins_small_params.json"  # put here your params file
+    ds = GraphsDataset(params_file, external_data=None)
+    model = QGCN(params_file, ds.len_features, [10])
+    activator = QGCNActivator(model, params_file, ds)
+    activator.train()
