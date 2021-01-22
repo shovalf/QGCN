@@ -43,4 +43,4 @@ provided, you should put the associated parameters as None.
 
 Once you have these files, go to QGCN_model->qgcn_activator.py and run it according to your params file.
 
-The datasets can be download here: https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets . Notice the format we have used.
+The datasets can be download here: https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets . Notice you will have to change their format to ours. You can see an example data conventor in datasets->chane_data_format.py
