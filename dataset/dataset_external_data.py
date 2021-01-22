@@ -106,7 +106,3 @@ class ExternalData:
         symbol_to_idx = {ftr: {symbol: i for i, symbol in enumerate(idx_to_symbol_list)} for ftr, idx_to_symbol_list in
                          idx_to_symbol.items()}
         return embed_dict, value_dict, idx_to_symbol, symbol_to_idx
-
-
-# if __name__ == "__main__":
-#     ExternalData("../params/default_binary_params.json")
