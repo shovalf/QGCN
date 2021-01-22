@@ -127,24 +127,3 @@ class QGCN(Module):
         x2 = self._qgcn_last_layer(A, x0, x1)
         x2 = torch.sigmoid(x2) if self._is_binary else self._softmax(x2)
         return x2
-
-
-if __name__ == "__main__":
-    from dataset.dataset_external_data import ExternalData
-    from dataset.dataset_graphs_model import GraphsDataset
-
-    params_file = "../params/default_binary_params.json"
-    ext_train = ExternalData(params_file)
-    ds = GraphsDataset(params_file, external_data=ext_train)
-    dl = DataLoader(
-        dataset=ds,
-        collate_fn=ds.collate_fn,
-        batch_size=64,
-    )
-
-    module = QGCN(params_file, ds.len_features, ext_train.len_embed())
-    # module = BilinearModule(BilinearModuleParams())
-    for i, (_A, _D, _x0, _l) in enumerate(dl):
-        _x2 = module(_A, _D, _x0)
-        print(i, "/", len(dl), _x2.shape)
-        e = 0
