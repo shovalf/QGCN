@@ -1,3 +1,7 @@
+"""
+Main file to run QGCN model. See the main function in the bottom of this file.
+"""
+
 import csv
 import json
 import os
