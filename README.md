@@ -9,14 +9,14 @@ required packages:
 ### How to use 
 To use this package you will need to provide the following files as input:
 
--> Graphs csv file - files that contain the graphs for input and their labels
-  The format of the file is flexible, but it must contain headers for any column, and the there must be a column provided for:
+-> Graphs csv file - files that contain the graphs for input and their labels.
+  The format of the file is flexible, but it must contain headers for any column, and there must be a column provided for:
   - graph id
   - source node id
   - destination node id
   - label id (every graph id can be attached to only one label)
 - External data file - external data for every node (Optional)
-    The format of this file is also flexible, but it must contain headers for any column, and the there must be a column provided for:
+    The format of this file is also flexible, but it must contain headers for any column, and there must be a column provided for:
     **note!! every node must get a value**
     - graph id
     - node id
@@ -43,4 +43,4 @@ provided, you should put the associated parameters as None.
 
 Once you have these files, go to QGCN_model->qgcn_activator.py and run it according to your params file.
 
-The datasets can be download here: https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets . Notice you will have to change their format to ours. You can see an example data conventor in datasets->chane_data_format.py
+The datasets can be download here: https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets . Notice you will have to change their format to ours. You can see an example data conventor in datasets->change_data_format.py
