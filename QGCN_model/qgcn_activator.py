@@ -9,6 +9,24 @@ from sys import stdout
 # import nni
 from time import sleep
 
+f = open("curr_pwd", "wt")
+cwd = os.getcwd()
+f.write(cwd)
+f.close()
+
+sys.path.insert(1, os.path.join(cwd, ".."))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graph-measures"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graph-measures", "features_algorithms"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graph-measures", "graph_infra"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graph-measures", "features_infra"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graph-measures", "features_meta"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graph-measures", "features_algorithms", "vertices"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graphs-package", "features_processor"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graphs-package", "multi_graph"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graphs-package", "temporal_graphs"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graphs-package", "features_processor", "motif_variations"))
+sys.path.insert(1, os.path.join(cwd, "..", "..", "graphs-package"))
+
 import torch
 from sklearn.metrics import roc_auc_score
 from bokeh.plotting import figure, show
