@@ -1,24 +1,23 @@
 {
-  "dataset_name": "Aids",
+  "dataset_name": "Mutagen",
 
-  "external": {"file_path": "../data/AIDS_external_data_all.csv",
+  "external": {"file_path": "../data/Mutagenicity_external_data_all.csv",
     "graph_col": "g_id", "node_col": "node",
-    "embeddings": ["chem", "symbol"], "continuous": ["charge", "x", "y"]},
+    "embeddings": ["chem"], "continuous": []},
 
-  "graphs_data": {"file_path": "../data/AIDS_all.csv",
+  "graphs_data": {"file_path": "../data/Mutagenicity_all.csv",
     "graph_col": "g_id", "src_col": "src", "dst_col": "dst", "label_col": "label", "directed": "False",
-    "features": ["DEG", "CENTRALITY", "BFS"], "adjacency_norm": "NORM_REDUCED", "percentage": 1,
+    "features": ["DEG", "CENTRALITY"], "adjacency_norm": "NORM_REDUCED", "percentage": 1,
     "standardization": "zscore"},
 
-  "model": {"label_type": "binary", "num_classes": 2, "use_embeddings": "True", "embeddings_dim": [10, 10],
-            "activation": "relu_", "dropout": 0, "lr": 1e-3, "optimizer": "ADAM_", "L2_regularization": 0,
+  "model": {"label_type": "binary", "num_classes": 2, "use_embeddings": "True", "embeddings_dim": [10],
+            "activation": "tanh_", "dropout": 0, "lr": 1e-4, "optimizer": "ADAM_", "L2_regularization": 1e-7, "f": "x1_x0",
             "GCN_layers": [
-              {"in_dim": "None", "out_dim": 100},
-              {"in_dim": 100, "out_dim": 50},
-              {"in_dim": 50, "out_dim": 25}
+              {"in_dim": "None", "out_dim": 250},
+              {"in_dim": 250, "out_dim": 250}
               ]
   },
 
-  "activator" : {"epochs": 1, "batch_size": 1, "loss_func": "binary_cross_entropy_with_logits_",
-    "train": 0.3467, "dev": 0.1153, "test": 0.538}
+  "activator" : {"epochs": 1500, "batch_size": 128, "loss_func": "binary_cross_entropy_with_logits_",
+    "train": 0.675, "dev": 0.125, "test": 0.2}
 }
