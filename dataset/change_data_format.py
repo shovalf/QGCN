@@ -1,5 +1,5 @@
 """
-If a dataset is taken from the website that has een provided, here is an example data loader in order to
+If a dataset is taken from the website that has been provided, here is an example data loader in order to
 adjust it to our format - a few csv files as explained in the Readme (you can adjust it to your own files and directories).
 """
 
