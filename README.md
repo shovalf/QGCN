@@ -45,4 +45,4 @@ Once you have these files, go to QGCN_model->qgcn_activator.py and run it accord
 
 The datasets can be download here: https://ls11-www.cs.tu-dortmund.de/staff/morris/graphkerneldatasets . Notice you will have to change their format to ours. You can see an example data conventor in datasets -> change_data_format.py
 
-Mail address for more information: ovednagar@hotmail.com , 123shovalf@gmail.com
+Mail address for more information: 123shovalf@gmail.com
